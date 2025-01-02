@@ -1,7 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from '../ui/button'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
