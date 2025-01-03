@@ -29,7 +29,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="flex text-primary justify-between items-center sm:m-1 sm:rounded fixed top-0 left-0 w-full bg-background/75 backdrop-blur  py-4 px-4 md:px-20 lg:px-40">
+    <nav className="flex text-primary justify-between items-center border-b border-primary sm:rounded fixed top-0 left-0 w-full bg-background/75 backdrop-blur  py-4 px-4 md:px-20 lg:px-40">
       <p className="font-bold  text-3xl">LitLearn</p>
 
       <div className='flex gap-4 items-center'>
