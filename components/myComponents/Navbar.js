@@ -18,7 +18,7 @@ const Navbar = () => {
 
   let navLinks = [
     { name: "Home", path: "/" },
-    { name: "Blog", path: "/blog" },
+    { name: "Blogs", path: "/blog" },
     { name: "PYQs", path: "/pyqs" },
     { name: "Notes", path: "/notes" },
     { name: "Profile", path: "/profile" },
@@ -85,9 +85,9 @@ const Navbar = () => {
                 <Button variant="ghost" className="w-full">
                   <Link href="/blog">
                     <SheetClose asChild>
-                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/blog" ? "underline font-bold" : ""}`}>
+                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/blogs" ? "underline font-bold" : ""}`}>
                         <PanelTop className="mr-2 h-10 w-10" />
-                        <p className='flex-1'>Blog</p>
+                        <p className='flex-1'>Blogs</p>
                       </div>
                     </SheetClose>
                   </Link>
