@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { Home, Menu, X } from 'lucide-react'
+import { Home, Menu, NotepadTextIcon, PanelTop, ScrollTextIcon, User, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
@@ -70,13 +70,13 @@ const Navbar = () => {
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
 
-              <div className='flex flex-col space-y-2'>
+              <div className='flex mt-8 flex-col space-y-2'>
                 <Button variant="ghost" className="w-full">
                   <Link href="/">
                     <SheetClose asChild>
-                      <div className={`flex items-center text-primary text-xl ${pathname === "/" ? "underline font-bold" : ""}`}>
+                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/" ? "underline font-bold" : ""}`}>
                         <Home className="mr-2 h-10 w-10" />
-                        <p>Home</p>
+                        <p className='flex-1'>Home</p>
                       </div>
                     </SheetClose>
                   </Link>
@@ -85,8 +85,9 @@ const Navbar = () => {
                 <Button variant="ghost" className="w-full">
                   <Link href="/blog">
                     <SheetClose asChild>
-                      <div className={`flex items-center text-primary text-xl ${pathname === "/blog" ? "underline font-bold" : ""}`}>
-                        <p>Blog</p>
+                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/blog" ? "underline font-bold" : ""}`}>
+                        <PanelTop className="mr-2 h-10 w-10" />
+                        <p className='flex-1'>Blog</p>
                       </div>
                     </SheetClose>
                   </Link>
@@ -95,8 +96,9 @@ const Navbar = () => {
                 <Button variant="ghost" className="w-full">
                   <Link href="/pyqs">
                     <SheetClose asChild>
-                      <div className={`flex items-center text-primary text-xl ${pathname === "/pyqs" ? "underline font-bold" : ""}`}>
-                        <p>PYQs</p>
+                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/pyqs" ? "underline font-bold" : ""}`}>
+                      <ScrollTextIcon className="mr-2 h-10 w-10" />
+                        <p className='flex-1'>PYQs</p>
                       </div>
                     </SheetClose>
                   </Link>
@@ -105,8 +107,9 @@ const Navbar = () => {
                 <Button variant="ghost" className="w-full">
                   <Link href="/notes">
                     <SheetClose asChild>
-                      <div className={`flex items-center text-primary text-xl ${pathname === "/notes" ? "underline font-bold" : ""}`}>
-                        <p>Notes</p>
+                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/notes" ? "underline font-bold" : ""}`}>
+                      <NotepadTextIcon className="mr-2 h-10 w-10" />
+                        <p className='flex-1'>Notes</p>
                       </div>
                     </SheetClose>
                   </Link>
@@ -115,8 +118,9 @@ const Navbar = () => {
                 <Button variant="ghost" className="w-full">
                   <Link href="/profile">
                     <SheetClose asChild>
-                      <div className={`flex items-center text-primary text-xl ${pathname === "/profile" ? "underline font-bold" : ""}`}>
-                        <p>Profile</p>
+                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/profile" ? "underline font-bold" : ""}`}>
+                      <User className="mr-2 h-10 w-10" />
+                        <p className='flex-1'>Profile</p>
                       </div>
                     </SheetClose>
                   </Link>
