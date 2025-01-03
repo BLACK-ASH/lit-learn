@@ -7,7 +7,7 @@ import TrendingBlog from "@/components/myComponents/TrendingBlog";
 
 export default function Home() {
   return (
-    <div className="h-screen w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
+    <div className=" w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
       <section>
         <Hero />
       </section>
