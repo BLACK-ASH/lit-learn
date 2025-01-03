@@ -11,8 +11,8 @@ const Footer = () => {
     ]
 
     return (
-        <footer className='bg-purple-300 p-4 flex flex-col items-center justify-center' >
-            <ul className="flex gap-4 ">
+        <footer className='bg-accent p-4 flex flex-col items-center justify-center' >
+            <ul className="flex gap-4 text-primary font-semibold text-sm ">
                 {navLinks.map((link, index) => (
                     <li className='hover:underline' key={index}>
                         <Link href={link.path}>
@@ -21,7 +21,7 @@ const Footer = () => {
                     </li>
                 ))}
             </ul>
-            <div className='flex justify-between bg-purple-300 py-4 px-4 md:px-20 lg:px-40 items-center'>
+            <div className='flex justify-between py-4 px-4 md:px-20 lg:px-40 items-center'>
 
                 <div>
                     © 2024 <a target='_blank' href="https://github.com/BLACK-ASH/lit-learn">Blackash</a>. All rights reserved.
