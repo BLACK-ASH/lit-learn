@@ -1,22 +1,20 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Home, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { ModeToggle } from '../mode-toggle'
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
+import { Button } from '../ui/button'
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false); 
+  const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsClient(true); // Set client-side render flag
   }, []);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  // Function to close the mobile menu when a link is clicked
-  const closeMenu = () => setIsMenuOpen(false)
 
   let navLinks = [
     { name: "Home", path: "/" },
@@ -31,41 +29,110 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="flex text-primary justify-between items-center sm:m-1 sm:rounded fixed top-0 left-0 w-full bg-white/75 backdrop-blur  py-4 px-4 md:px-20 lg:px-40">
+    <nav className="flex text-primary justify-between items-center sm:m-1 sm:rounded fixed top-0 left-0 w-full bg-background/75 backdrop-blur  py-4 px-4 md:px-20 lg:px-40">
       <p className="font-bold  text-3xl">LitLearn</p>
 
-      {/* Desktop Menu */}
-      <div className="hidden md:flex gap-4">
-
-        <ul className="flex gap-4">
-          {navLinks.map((link, index) => (
-            <li className={pathname === link.path ? "font-bold underline" : ""} key={index}>
-              <Link href={link.path}>
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Mobile Menu Toggle Button */}
-      <div className="md:hidden" onClick={toggleMenu}>
-        {isMenuOpen ? <X className="w-8  h-8  text-primary" /> : <Menu className="w-8  h-8  text-primary" />}
-      </div>
-
-      {/* Mobile Menu (Dropdown) */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white rounded-b-lg">
-          <div className="flex flex-col items-center">
+      <div className='flex gap-4 items-center'>
+        <div className="hidden md:flex gap-4 items-center">
+          <ul className="flex gap-4">
             {navLinks.map((link, index) => (
-              <Link href={link.path} key={index} className={`${pathname === link.path ? "font-bold underline" : ""} w-full text-lg text-center py-2`} onClick={closeMenu}>
-                {link.name}
-              </Link>
+              <li className={pathname === link.path ? "font-bold underline" : "hover:underline"} key={index}>
+                <Link href={link.path}>
+                  {link.name}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
+
         </div>
-      )}
-    </nav>
+
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
+        <div className='hidden md:flex'>
+          <ModeToggle />
+        </div>
+
+        <div className='md:hidden'>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Menu className="hover:cursor-pointer h-8 w-8" />
+            </SheetTrigger>
+            <SheetContent side="left" >
+              <SheetHeader>
+                <div className='flex gap-4 items-center'>
+                  <ModeToggle />
+                </div>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+
+              <div className='flex flex-col space-y-2'>
+                <Button variant="ghost" className="w-full">
+                  <Link href="/">
+                    <SheetClose asChild>
+                      <div className={`flex items-center text-primary text-xl ${pathname === "/" ? "underline font-bold" : ""}`}>
+                        <Home className="mr-2 h-10 w-10" />
+                        <p>Home</p>
+                      </div>
+                    </SheetClose>
+                  </Link>
+                </Button>
+
+                <Button variant="ghost" className="w-full">
+                  <Link href="/blog">
+                    <SheetClose asChild>
+                      <div className={`flex items-center text-primary text-xl ${pathname === "/blog" ? "underline font-bold" : ""}`}>
+                        <p>Blog</p>
+                      </div>
+                    </SheetClose>
+                  </Link>
+                </Button>
+
+                <Button variant="ghost" className="w-full">
+                  <Link href="/pyqs">
+                    <SheetClose asChild>
+                      <div className={`flex items-center text-primary text-xl ${pathname === "/pyqs" ? "underline font-bold" : ""}`}>
+                        <p>PYQs</p>
+                      </div>
+                    </SheetClose>
+                  </Link>
+                </Button>
+
+                <Button variant="ghost" className="w-full">
+                  <Link href="/notes">
+                    <SheetClose asChild>
+                      <div className={`flex items-center text-primary text-xl ${pathname === "/notes" ? "underline font-bold" : ""}`}>
+                        <p>Notes</p>
+                      </div>
+                    </SheetClose>
+                  </Link>
+                </Button>
+
+                <Button variant="ghost" className="w-full">
+                  <Link href="/profile">
+                    <SheetClose asChild>
+                      <div className={`flex items-center text-primary text-xl ${pathname === "/profile" ? "underline font-bold" : ""}`}>
+                        <p>Profile</p>
+                      </div>
+                    </SheetClose>
+                  </Link>
+                </Button>
+
+              </div>
+
+            </SheetContent>
+          </Sheet>
+        </div>
+
+      </div>
+
+
+
+    </nav >
   );
 };
 

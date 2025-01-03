@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/myComponents/Navbar";
 import Footer from "@/components/myComponents/Footer";
 
@@ -21,23 +22,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="light" style={{ colorScheme: "light" }}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+
+      <html lang="en" className="light" style={{ colorScheme: "light" }}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
         >
-          <Navbar />
-          <div className="mt-20 min-h-screen">
-            {children}
-          </div>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <div className="mt-20 min-h-screen">
+              {children}
+            </div>
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
