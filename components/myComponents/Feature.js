@@ -62,7 +62,7 @@ const Feature = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
+          <Card key={index} className="hover:shadow-lg hover:shadow-primary shadow-primary transition-shadow">
             <CardHeader className="flex items-center gap-4">
               <feature.icon className="h-10 w-10 text-purple-600" />
               <CardTitle>{feature.title}</CardTitle>

@@ -25,7 +25,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="h-[200px] w-full md:w-[35%] bg-slate-900 text-white text-center flex items-center justify-center hidden md:block">
+      <div className="h-[200px] w-full md:w-[35%] bg-slate-900 text-white text-center items-center justify-center hidden md:block">
         <p className="text-lg">Photo</p>
       </div>
     </div>

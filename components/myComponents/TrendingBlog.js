@@ -72,7 +72,7 @@ const blogs = [
       <h1 className="text-4xl text-primary font-semibold mb-8">Trending Blogs</h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog, index) => (
-          <Card key={index} className="w-full shadow-lg border rounded-md">
+          <Card key={index} className="w-full shadow-md shadow-primary border rounded-md">
             <CardHeader>
               <CardTitle className="text-xl font-semibold">{blog.title}</CardTitle>
             </CardHeader>

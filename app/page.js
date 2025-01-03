@@ -1,4 +1,5 @@
 
+import Divider from "@/components/myComponents/Divider";
 import Feature from "@/components/myComponents/Feature";
 import Hero from "@/components/myComponents/Hero";
 import Testimonial from "@/components/myComponents/Testimonial";
@@ -11,12 +12,15 @@ export default function Home() {
       <section>
         <Hero />
       </section>
+      <Divider/>
       <section>
         <Feature />
       </section>
+      <Divider/>
       <section>
         <Testimonial />
       </section>
+      <Divider/>
       <section>
         <TrendingBlog />
       </section>
