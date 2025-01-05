@@ -13,12 +13,12 @@ const Hero = () => {
         </h4>
         <div className="flex gap-6 mt-4">
           <Link href="/notes">
-            <Button className="w-32" variant="default">
+            <Button className="text-lg px-6 py-4 font-semibold" variant="default">
               Start Learning
             </Button>
           </Link>
           <Link href="/blogs">
-            <Button className="w-32 text-primary border-primary" variant="outline">
+            <Button className="text-lg px-6 py-4 font-semibold text-primary border-primary" variant="outline">
               Explore Blogs
             </Button>
           </Link>

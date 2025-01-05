@@ -47,7 +47,9 @@ const Navbar = () => {
         </div>
 
         <SignedOut>
-          <SignInButton />
+          <div className='bg-primary p-2 px-4 rounded-full text-primary-foreground'>
+            <SignInButton />
+          </div>
         </SignedOut>
         <SignedIn>
           <UserButton />
@@ -75,7 +77,7 @@ const Navbar = () => {
                   <Link href="/">
                     <SheetClose asChild>
                       <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/" ? "underline font-bold" : ""}`}>
-                        <Home className="mr-2 h-10 w-10" />
+                        <Home className="mr-2 !size-6" />
                         <p className='flex-1'>Home</p>
                       </div>
                     </SheetClose>
@@ -86,7 +88,7 @@ const Navbar = () => {
                   <Link href="/blogs">
                     <SheetClose asChild>
                       <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/blogs" ? "underline font-bold" : ""}`}>
-                        <PanelTop className="mr-2 h-10 w-10" />
+                        <PanelTop className="mr-2 !size-6" />
                         <p className='flex-1'>Blogs</p>
                       </div>
                     </SheetClose>
@@ -97,7 +99,7 @@ const Navbar = () => {
                   <Link href="/pyqs">
                     <SheetClose asChild>
                       <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/pyqs" ? "underline font-bold" : ""}`}>
-                      <ScrollTextIcon className="mr-2 h-10 w-10" />
+                        <ScrollTextIcon className="mr-2 !size-6" />
                         <p className='flex-1'>PYQs</p>
                       </div>
                     </SheetClose>
@@ -108,7 +110,7 @@ const Navbar = () => {
                   <Link href="/notes">
                     <SheetClose asChild>
                       <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/notes" ? "underline font-bold" : ""}`}>
-                      <NotepadTextIcon className="mr-2 h-10 w-10" />
+                        <NotepadTextIcon className="mr-2 !size-6" />
                         <p className='flex-1'>Notes</p>
                       </div>
                     </SheetClose>
@@ -119,7 +121,7 @@ const Navbar = () => {
                   <Link href="/profile">
                     <SheetClose asChild>
                       <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/profile" ? "underline font-bold" : ""}`}>
-                      <User className="mr-2 h-10 w-10" />
+                        <User className="mr-2 !size-6" />
                         <p className='flex-1'>Profile</p>
                       </div>
                     </SheetClose>
