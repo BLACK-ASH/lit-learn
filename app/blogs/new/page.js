@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast"
 import CategoryInput from "@/components/myComponents/Category";
 import ContentEditor from "@/components/myComponents/ContentEditor";
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 
 const page = () => {
@@ -19,6 +20,7 @@ const page = () => {
     const [category, setCategory] = useState("");
     const { toast } = useToast();
     const user = useUser();
+    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,15 +46,19 @@ const page = () => {
 
         // Mock API call (replace with actual API endpoint)
         try {
-            await fetch("/api/posts", {
+            await fetch("/api/post", {
                 method: "POST",
                 headers: {
                     "description-Type": "application/json",
                 },
                 body: JSON.stringify(newPost),
-            });
-
-            console.log(newPost);
+            })
+                .then(async (res) => {
+                    return await res.json();
+                })
+                .then((data) => {
+                    router.push(`/blogs/${data}`);
+                })
 
             // Success toast and reset fields
             toast({
@@ -69,6 +75,7 @@ const page = () => {
                 description: "There was an error creating your post.",
                 variant: "destructive",
             });
+            console.error("Error creating post:", error);
         }
     };
 
