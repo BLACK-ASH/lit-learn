@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Navbar />
-            <div className="mt-20 min-h-screen">
+            <div className="mt-[4.3rem] min-h-screen">
               {children}
             </div>
             <Footer />
