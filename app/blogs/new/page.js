@@ -57,18 +57,28 @@ const page = () => {
                     return await res.json();
                 })
                 .then((data) => {
+                    if (data?.status == 400) {
+                        toast({
+                            title: "Error",
+                            description: data.message,
+                            variant: "destructive",
+                        });
+                        return;
+                    }
+                    // Success toast and reset fields
+                    toast({
+                        title: "Success",
+                        description: "Your post has been created.",
+                    });
                     router.push(`/blogs/${data}`);
+                    setTitle("");
+                    setdescription("");
+                    setCategory("");
+                    setContent("");
                 })
 
-            // Success toast and reset fields
-            toast({
-                title: "Success",
-                description: "Your post has been created.",
-            });
-            setTitle("");
-            setdescription("");
-            setCategory("");
-            setContent("");
+
+
         } catch (error) {
             toast({
                 title: "Error",
