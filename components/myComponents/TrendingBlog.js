@@ -9,11 +9,12 @@ const  TrendingBlog = async () => {
   try {
     const res = await fetch(`${process.env.BASE_URL}/api/post/?query=trending`);
     if (res.status === 500) {
-      return notFound();
+      return ;
     }
     blogs = await res.json();
   } catch (error) {
-    return notFound();
+    console.log(error);
+    return ;
   }
 
   return (
