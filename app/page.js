@@ -1,4 +1,3 @@
-
 import Divider from "@/components/myComponents/Divider";
 import Feature from "@/components/myComponents/Feature";
 import Hero from "@/components/myComponents/Hero";

@@ -1,4 +1,5 @@
 import BlogCard from "./BlogCard";
+import { notFound } from "next/navigation";
 
 
 const  TrendingBlog = async () => {

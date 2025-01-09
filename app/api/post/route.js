@@ -5,9 +5,8 @@ export async function POST(req) {
     const { title, description, content, author, category, rating } = await req.json();
     const link = author + "-" + title.split(" ").join("-");
 
-    console.log(link);
     const existingBlog = await Blog.findOne({ link });
-    console.log(existingBlog);
+
     if (existingBlog) {
         return new Response(JSON.stringify({ status: 400, message: "Blog with this title already exists" }), { status: 400 });
     }
