@@ -85,6 +85,7 @@ const page = () => {
                 description: "There was an error creating your post.",
                 variant: "destructive",
             });
+            console.log("Error creating post:", error);
             console.error("Error creating post:", error);
         }
     };
