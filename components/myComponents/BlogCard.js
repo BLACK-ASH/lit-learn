@@ -13,7 +13,7 @@ const BlogCard = ({ blog, index }) => {
             <CardContent>
                 <p className="text-sm text-muted-foreground mb-4">{blog.description}</p>
                 <div className="flex justify-between text-xs text-muted-foreground">
-                    <span>{blog.author} | {blog.createdAt}</span>
+                    <span>{blog.author} | {new Date(blog?.createdAt).toLocaleString().split(',')[0]}</span>
                 </div>
                 <div className="flex items-center  justify-between mt-4">
                     <Badge variant={"secondary"} className="ml-2">{blog.category}</Badge>

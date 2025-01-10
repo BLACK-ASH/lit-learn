@@ -18,6 +18,7 @@ const page = () => {
     const [content, setContent] = useState("");
     const [description, setdescription] = useState("");
     const [category, setCategory] = useState("");
+    const [isSubmiting, setIsSubmiting] = useState(false);
     const { toast } = useToast();
     const user = useUser();
     const router = useRouter();
@@ -46,6 +47,7 @@ const page = () => {
 
         // Mock API call (replace with actual API endpoint)
         try {
+            setIsSubmiting(true);
             await fetch("/api/post", {
                 method: "POST",
                 headers: {
@@ -88,6 +90,8 @@ const page = () => {
             console.log("Error creating post:", error);
             console.error("Error creating post:", error);
         }
+
+        setIsSubmiting(false);
     };
 
     return (
@@ -135,7 +139,7 @@ const page = () => {
                         />
 
                         {/* Submit Button */}
-                        <Button type="submit" className="w-full">
+                        <Button disabled={isSubmiting} type="submit" className="w-full">
                             Publish Post
                         </Button>
                     </form>

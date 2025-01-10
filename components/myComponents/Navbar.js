@@ -117,17 +117,6 @@ const Navbar = () => {
                   </Link>
                 </Button>
 
-                <Button variant="ghost" className="w-full">
-                  <Link href="/profile">
-                    <SheetClose asChild>
-                      <div className={`flex items-center w-20 justify-between text-primary text-xl ${pathname === "/profile" ? "underline font-bold" : ""}`}>
-                        <User className="mr-2 !size-6" />
-                        <p className='flex-1'>Profile</p>
-                      </div>
-                    </SheetClose>
-                  </Link>
-                </Button>
-
               </div>
 
             </SheetContent>
