@@ -7,7 +7,7 @@ const page = async ({ params }) => {
   try {
 
     const res = await fetch(`${process.env.BASE_URL}/api/post/${slug}`);
-    if (res.status === 500) {
+    if (res.status != 200) {
       return notFound();
     }
     blog = await res.json();
