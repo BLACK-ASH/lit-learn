@@ -4,7 +4,9 @@ import Blog from "@/lib/model/blog.model";
 export async function POST(req) {
     try {
         // Ensure database connection
+        console.log("Starting database connection...");
         await connectDB();
+        console.log("Database connection successful");
 
         // Parse request JSON
         const { title, description, content, author, category, rating } = await req.json();

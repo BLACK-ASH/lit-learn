@@ -21,7 +21,6 @@ const Navbar = () => {
     { name: "Blogs", path: "/blogs" },
     { name: "PYQs", path: "/pyqs" },
     { name: "Notes", path: "/notes" },
-    { name: "Profile", path: "/profile" },
   ]
 
   if (!isClient) {
