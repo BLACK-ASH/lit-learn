@@ -60,7 +60,7 @@ const page = () => {
                     if (data?.status == 400) {
                         toast({
                             title: "Error",
-                            description: data.message,
+                            description: JSON.stringify(data.message),
                             variant: "destructive",
                         });
                         return;
