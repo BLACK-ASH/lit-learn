@@ -72,7 +72,7 @@ const page = () => {
                         title: "Success",
                         description: "Your post has been created.",
                     });
-                    router.push(`/blogs/${data}`);
+                    router.push(`/blogs/${data.link}`);
                     setTitle("");
                     setdescription("");
                     setCategory("");

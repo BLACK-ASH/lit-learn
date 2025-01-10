@@ -3,24 +3,49 @@ import Blog from "@/lib/model/blog.model";
 
 export async function POST(req) {
     try {
+        // Ensure database connection
         await connectDB();
-        const { title, description, content, author, category, rating } = await req.json();
-        const link = author + "-" + title.split(" ").join("-");
 
+        // Parse request JSON
+        const { title, description, content, author, category, rating } = await req.json();
+
+        // Generate unique link
+        const link = `${author}-${title.split(" ").join("-")}`.toLowerCase();
+
+        // Check if blog already exists
         const existingBlog = await Blog.findOne({ link });
         if (existingBlog) {
             return new Response(
                 JSON.stringify({ status: 400, message: "Blog with this title already exists" }),
-                { status: 400 }
+                { status: 400, headers: { "Content-Type": "application/json" } }
             );
         }
 
-        const blog = new Blog({ title, description, content, author, category, rating, link });
+        // Create and save new blog
+        const blog = new Blog({
+            title,
+            description,
+            content,
+            author,
+            category,
+            rating,
+            link,
+        });
         await blog.save();
-        return new Response(JSON.stringify(link), { status: 201 });
+
+        // Return success response
+        return new Response(
+            JSON.stringify({ status: 201, link }),
+            { status: 201, headers: { "Content-Type": "application/json" } }
+        );
     } catch (error) {
         console.error("Error:", error);
-        return new Response(JSON.stringify({ status: 500, error: error.message }), { status: 500 });
+
+        // Return error response
+        return new Response(
+            JSON.stringify({ status: 500, error: error.message }),
+            { status: 500, headers: { "Content-Type": "application/json" } }
+        );
     }
 }
 
