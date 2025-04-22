@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Footer = () => {
     let navLinks = [
         { name: "Home", path: "/" },
-        { name: "Blogs", path: "/blog" },
+        { name: "Blogs", path: "/blogs" },
         { name: "PYQs", path: "/pyqs" },
         { name: "Notes", path: "/notes" },
     ]
