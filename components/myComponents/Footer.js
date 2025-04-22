@@ -7,7 +7,6 @@ const Footer = () => {
         { name: "Blogs", path: "/blog" },
         { name: "PYQs", path: "/pyqs" },
         { name: "Notes", path: "/notes" },
-        { name: "Profile", path: "/profile" },
     ]
 
     return (

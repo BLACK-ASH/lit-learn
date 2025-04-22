@@ -1,20 +1,18 @@
 import BlogCard from "./BlogCard";
-import { notFound } from "next/navigation";
 
-
-const  TrendingBlog = async () => {
+const TrendingBlog = async () => {
 
   let blogs;
 
   try {
     const res = await fetch(`${process.env.BASE_URL}/api/post/?query=trending`);
-    if (res.status === 500) {
-      return ;
+    if (res.status != 200) {
+      return
     }
     blogs = await res.json();
   } catch (error) {
     console.log(error);
-    return ;
+    return;
   }
 
   return (
